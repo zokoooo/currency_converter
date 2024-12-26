@@ -1,10 +1,12 @@
-import './App.css'
+//https://www.cbr-xml-daily.ru/daily_json.js
 
-function App() {
+import './App.css';
+import 'normalize.css'
 
-  return (
-    <>123</>
-  )
-}
+import React from 'react';
 
-export default App
+const App: React.FC = () => {
+  return <>123</>;
+};
+
+export default App;
