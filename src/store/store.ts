@@ -1,38 +1,25 @@
-import { createStore } from "redux";
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import reducerData from "./reducers/reducerData.ts";
+import reducerInput from "./reducers/reducerInput.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {IActionCurrencyData, IActionInput, Valute} from "./types.ts";
+import {ActionsData, ActionsInput} from "./actions.ts";
 
-enum actionTypes {
-    SET_INPUTTO = "SET_INPUTTO",
-    SET_INPUTFROM = "SET_INPUTTO",
-    SET_DATACONVERTER = "SET_DATACONVERTER"
-}
+const rootReducer = combineReducers({
+    reducerCurrency: reducerData,
+    reducerInput: reducerInput
+})
 
-interface IStore {
-    inputFrom: number;
-    inputTo: number;
-    dataConverter: object;
-}
+export const store  = configureStore({
+  reducer: rootReducer
+})
 
-const initialState: IStore = {
-    inputFrom: 0,
-    inputTo: 0,
-    dataConverter: {}
-}
+export type AppState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-const reducer = (state: IStore = initialState, action: object): IStore => {
-    switch (action.type) {
-        case actionTypes.SET_INPUTTO:
-            return {...state, inputTo: action.payload}
-        case actionTypes.SET_INPUTFROM:
-            return {...state, inputFrom: action.payload}
-        case actionTypes.SET_DATACONVERTER:
-            return {...state, dataConverter: action.payload}
-        default:
-            return state;
-    }
-}
+export const useAppSelector = useSelector.withTypes<AppState>();
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 
-export const store: IStore = createStore(reducer);
-
-export const setInputTo = (payload: number | object) => ({type: actionTypes.SET_INPUTTO, payload: payload})
-export const setInputFrom = (payload: number | object) => ({type: actionTypes.SET_INPUTFROM, payload: payload})
-export const setDataConverter = (payload: number | object) => ({type: actionTypes.SET_DATACONVERTER, payload: payload})
+export const setInputTo = (payload: number): IActionInput => ({type: ActionsInput.SET_INPUTTO,  payload: payload});
+export const setInputFrom = (payload: number): IActionInput => ({type: ActionsInput.SET_INPUTFROM,  payload: payload});
+export const setCurrencyData = (payload: Valute): IActionCurrencyData => ({type: ActionsData.SET_CURRENCY, payload: payload});
