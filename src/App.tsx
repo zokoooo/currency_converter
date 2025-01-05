@@ -5,6 +5,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, setCurrencyData} from "./store/store.ts";
 import {Valute} from "./store/types.ts";
 import InputForm from "./components/InputForm/InputForm.tsx";
+import { IoIosSwap } from "react-icons/io";
 
 const App: React.FC = () => {
 
@@ -30,6 +31,8 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <div className="background">
+        <InputForm></InputForm>
+        <IoIosSwap size={50}></IoIosSwap>
         <InputForm></InputForm>
       </div>
       <div className="circle"></div>

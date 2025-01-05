@@ -1,3 +1,7 @@
+type Action = {
+  type: string,
+}
+
 interface Currency {
   charCode: string;
   nominal: number;
@@ -18,12 +22,18 @@ export interface IDataInput {
   inputTo: number;
 }
 
-export interface IActionCurrencyData {
-  type: string;
+export interface ICountry {
+  countryFrom: string;
+  countryTo: string;
+}
+
+export interface IActionCurrencyData extends Action {
   payload: Valute;
 }
 
-export interface IActionInput {
-  type: string;
+export interface IActionInput extends Action {
   payload: number;
+}
+export interface IActionCountry extends Action {
+  payload: string;
 }
