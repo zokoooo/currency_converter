@@ -24,6 +24,13 @@ const App: React.FC = () => {
             name: element.Name,
           };
         });
+
+      data['RUB'] = {
+        charCode: 'RUB',
+        nominal: 1,
+        value: 1,
+        name: 'Российский рубль'
+      }
       dispatch(setCurrencyData(data));
       })
   }, []);
@@ -31,9 +38,9 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <div className="background">
-        <InputForm></InputForm>
+        <InputForm data-name={'from'}></InputForm>
         <IoIosSwap size={50}></IoIosSwap>
-        <InputForm></InputForm>
+        <InputForm data-name={'to'}></InputForm>
       </div>
       <div className="circle"></div>
     </main>

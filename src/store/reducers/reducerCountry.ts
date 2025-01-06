@@ -2,9 +2,9 @@ import {IActionCountry, ICountry} from "../types.ts";
 import {ActionsCountry} from "../actions.ts";
 
 const initialState: ICountry = {
-  countryTo: '',
-  countryFrom: ''
-}
+  countryTo: window.localStorage.getItem("countryTo") ?? 'RUB',
+  countryFrom: window.localStorage.getItem("countryFrom") ?? 'USD',
+};
 
 const reducerCountry = (state: ICountry = initialState, action: IActionCountry): ICountry => {
   switch (action.type) {

@@ -9,6 +9,13 @@
     min-height: 30px;
     border: 1px solid #ddd;
     border-radius: 4px;
+
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
 }
 
 /*.currentList {*/
@@ -31,7 +38,12 @@
 
     scrollbar-width: none;
 
-    /*display: none;*/
+    display: block;
+
+}
+
+.selectList[data-open=false] {
+    display: none;
 }
 
 .loading {
@@ -59,4 +71,13 @@
 
 .option:hover {
     background-color: #ddd;
+}
+
+.arrowUp {
+    transition: transform 200ms linear;
+}
+
+.arrowDown {
+    transform: rotate(-180deg);
+    transition: transform 200ms linear;
 }
