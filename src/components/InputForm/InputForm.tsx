@@ -2,11 +2,16 @@ import React from "react";
 import Select from "../Select/Select.tsx";
 import './InputForm.css'
 
-const InputForm: React.FC = () => {
+interface InputFormProps {
+  type: "from" | "to";
+}
+
+const InputForm: React.FC<InputFormProps> = ({ type }) => {
   return (
     <div className="inputForm">
+      
       <input className="input" type="text"></input>
-      <Select></Select>
+      <Select type={type}></Select>
     </div>
   );
 }

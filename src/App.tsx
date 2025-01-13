@@ -1,3 +1,4 @@
+import './assets/fonts/stylesheet.css'
 import './App.css';
 import 'normalize.css'
 
@@ -12,7 +13,7 @@ const App: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+      fetch('https://www.cbr-xml-daily.ru/daily_json.js')
       .then(res => res.json())
       .then(res => {
         const data: Valute = {};
@@ -38,9 +39,9 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <div className="background">
-        <InputForm data-name={'from'}></InputForm>
+        <InputForm type={"from"} ></InputForm>
         <IoIosSwap size={50}></IoIosSwap>
-        <InputForm data-name={'to'}></InputForm>
+        <InputForm type={"to"}></InputForm>
       </div>
       <div className="circle"></div>
     </main>
