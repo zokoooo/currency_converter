@@ -2,8 +2,8 @@ import {IDataInput, IActionInput} from "../types.ts";
 import {ActionsInput} from "../actions.ts";
 
 const initialState: IDataInput = {
-  inputFrom: 0,
-  inputTo: 0
+  inputFrom: null,
+  inputTo: null
 }
 
 function reducerInput(state: IDataInput = initialState, action: IActionInput): IDataInput {

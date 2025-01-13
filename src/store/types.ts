@@ -18,8 +18,8 @@ export interface ICurrencyData {
 }
 
 export interface IDataInput {
-  inputFrom: number;
-  inputTo: number;
+  inputFrom: number | null;
+  inputTo: number | null;
 }
 
 export interface ICountry {

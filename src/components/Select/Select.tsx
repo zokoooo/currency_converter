@@ -13,8 +13,6 @@ const Select: React.FC<SelectProps> = ({ type }) => {
 
   const [selectOpen, setSelectOpen] = useState<boolean>(false);
 
-  console.log(type);
-
   const dispatch = useAppDispatch();
   const setCountry = type == "from" ? setCountryFrom : setCountryTo;
 
@@ -36,8 +34,7 @@ const Select: React.FC<SelectProps> = ({ type }) => {
 
       <OptionList charCodes={charCodes} selectOpen={selectOpen} onClick={(e) => {
         dispatch(setCountry(e.target.getAttribute('data-charcode')));
-        setSelectOpen(!selectOpen);
-      }}/>
+        setSelectOpen(!selectOpen);}}/>
     </div>
   );
 };
