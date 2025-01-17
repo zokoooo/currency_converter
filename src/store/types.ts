@@ -32,7 +32,7 @@ export interface IActionCurrencyData extends Action {
 }
 
 export interface IActionInput extends Action {
-  payload: number;
+  payload: number | null;
 }
 export interface IActionCountry extends Action {
   payload: string;

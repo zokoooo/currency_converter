@@ -33,8 +33,10 @@ const Select: React.FC<SelectProps> = ({ type }) => {
       </div>
 
       <OptionList charCodes={charCodes} selectOpen={selectOpen} onClick={(e) => {
-        dispatch(setCountry(e.target.getAttribute('data-charcode')));
-        setSelectOpen(!selectOpen);}}/>
+        if (e.target.getAttribute('data-charcode')) {
+          dispatch(setCountry(e.target.getAttribute('data-charcode')));
+          setSelectOpen(!selectOpen);
+        }}}/>
     </div>
   );
 };

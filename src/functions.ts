@@ -1,16 +1,18 @@
-export function costPerOne(to: string, from: string): number {
-  const valueTo = this[to].value / this[to].nominal;
-  const valueFrom = this[from].value / this[from].nominal;
+import { Valute } from "./store/types.ts";
 
-  const k: number = valueFrom / valueTo;
-  return Math.round(k * 1000000) / 1000000
-}
-
-export function converter(to: string, from: string, value: number): number {
+export function converter(charCodes: Valute, to: string, from: string, value: number = 1): number {
   if (value === 0) return 0;
-  const valueTo = this[to].value / this[to].nominal;
-  const valueFrom = this[from].value / this[from].nominal;
+  const valueTo = charCodes[to].value / charCodes[to].nominal;
+  const valueFrom = charCodes[from].value / charCodes[from].nominal;
 
   const k: number = (valueFrom / valueTo) * value;
-  return Math.round(k * 10000) / 10000
+  const okrugl: number = k > 1000 ? 100: 10000
+  return Math.round(k * okrugl) / okrugl
+}
+
+export function formatNumberWithSpaces(number: number) {
+  const numberString = number.toString();
+  const [integerPart, decimalPart] = numberString.split('.');
+  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return decimalPart ? `${formattedInteger}.${decimalPart}` : formattedInteger;
 }

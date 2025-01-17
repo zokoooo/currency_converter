@@ -22,8 +22,8 @@ export type AppDispatch = typeof store.dispatch;
 export const useAppSelector = useSelector.withTypes<AppState>();
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 
-export const setInputTo = (payload: number): IActionInput => ({type: ActionsInput.SET_INPUTTO,  payload: payload});
-export const setInputFrom = (payload: number): IActionInput => ({type: ActionsInput.SET_INPUTFROM,  payload: payload});
+export const setInputTo = (payload: number | null): IActionInput => ({type: ActionsInput.SET_INPUTTO,  payload: payload});
+export const setInputFrom = (payload: number | null): IActionInput => ({type: ActionsInput.SET_INPUTFROM,  payload: payload});
 export const setCurrencyData = (payload: Valute): IActionCurrencyData => ({type: ActionsData.SET_CURRENCY, payload: payload});
 export const setCountryTo = (payload: string): IActionCountry => ({type: ActionsCountry.SET_COUNTRYTO, payload: payload});
 export const setCountryFrom = (payload: string): IActionCountry => ({type: ActionsCountry.SET_COUNTRYFROM, payload: payload});
