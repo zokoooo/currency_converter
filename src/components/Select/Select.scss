@@ -1,0 +1,22 @@
+.select {
+  max-width: 100%;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  max-height: 40px;
+
+  position: relative;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  &__current {
+    min-height: 40px;
+
+    padding: 0 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -1,0 +1,13 @@
+.option {
+  padding: 0 10px;
+
+  min-height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #c8c8c8;
+  }
+}

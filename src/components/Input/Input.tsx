@@ -1,6 +1,7 @@
 import React from 'react';
 import {setInputFrom, setInputTo, useAppDispatch, useAppSelector} from "../../store/store.ts";
 import {converter} from "../../functions.ts";
+import './Input.scss'
 
 const Input: React.FC = () => {
 
@@ -13,7 +14,7 @@ const Input: React.FC = () => {
   if (!charCodes) {return (<div>Loading...</div>)}
 
   return (
-    <input maxLength={13} value={stateInput ?? ''} className="input" type="text" onChange={(e) => {
+    <input maxLength={13} value={stateInput ?? ''} className="input-form__input input-form__input--margin" type="text" onChange={(e) => {
       dispatch(setInputFrom(parseFloat(e.target.value) || null));
       dispatch(setInputTo(converter(charCodes, country.countryTo, country.countryFrom, parseFloat(e.target.value) || 0)))
     }}></input>

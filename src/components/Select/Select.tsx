@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Select.css';
+import './Select.scss';
 import ReactCountryFlag from "react-country-flag";
 import {useAppSelector, useAppDispatch, setCountryTo, setCountryFrom} from "../../store/store.ts";
 import { IoIosArrowDown } from "react-icons/io";
@@ -11,7 +11,7 @@ interface SelectProps {
 
 const Select: React.FC<SelectProps> = ({ type }) => {
 
-  const [selectOpen, setSelectOpen] = useState<boolean>(false);
+  const [selectOpen, setSelectOpen] = useState<boolean>(true);
 
   const dispatch = useAppDispatch();
   const setCountry = type == "from" ? setCountryFrom : setCountryTo;
@@ -26,9 +26,9 @@ const Select: React.FC<SelectProps> = ({ type }) => {
   return (
     <div className='select'>
 
-      <div className="currentSelect" onClick={() => {setSelectOpen(!selectOpen)}} style={selectOpen ? {borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px"} : {borderBottomLeftRadius: "5px", borderBottomRightRadius: "5px"}}>
-        <ReactCountryFlag className="flag" countryCode={country.slice(0, 2)} svg={true} />
-          {charCodes[country].name}
+      <div className="select__current" onClick={() => {setSelectOpen(!selectOpen)}} style={selectOpen ? {borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px"} : {borderBottomLeftRadius: "5px", borderBottomRightRadius: "5px"}}>
+        <ReactCountryFlag className="select__current-flag" countryCode={country.slice(0, 2)} svg={true} style={{width: '1.5em'}}/>
+        {charCodes[country].name}
         <IoIosArrowDown className={selectOpen ? "arrowDown" : "arrowUp"}/>
       </div>
 

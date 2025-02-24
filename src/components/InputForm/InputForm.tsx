@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "../Select/Select.tsx";
-import './InputForm.css'
+import './InputForm.scss'
 import { useAppSelector } from "../../store/store.ts";
 import Input from '../Input/Input.tsx'
 
@@ -9,7 +9,7 @@ const InputForm: React.FC = () => {
   const country = useAppSelector(state => state.reducerCountry.countryFrom);
 
   return (
-    <div className="inputForm">
+    <div className="input-form">
       {`1 ${country}`}
       <Input />
       <Select type={'from'}></Select>

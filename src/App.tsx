@@ -1,5 +1,5 @@
 import './assets/fonts/stylesheet.css'
-import './App.css';
+import './App.scss';
 import 'normalize.css'
 
 import React, {useEffect} from 'react';

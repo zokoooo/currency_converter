@@ -22,13 +22,15 @@
 
 .background {
     width: 60vw;
-    min-height: 50vh;
+    min-height: 30vh;
     z-index: 1;
 
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
-    align-items: center ;
+    gap: 10px;
 
+    padding: 0 20px;
     margin-top: -50px;
 
     border-radius: 15px;
@@ -39,7 +41,7 @@
 .circle {
     z-index: 0;
     position: absolute;
-    bottom: -25vh; /* Вместо margin-top */
+    bottom: -10vh; /* Вместо margin-top */
     left: -50%;
     width: 200%;
     height: 500px;
@@ -50,4 +52,17 @@
 
 .flag {
     font-size: 20px;
+}
+
+@media (max-width: 1023px) {
+    .background {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .background {
+        padding: 20px 20px;
+        flex-direction: column;
+    }
 }

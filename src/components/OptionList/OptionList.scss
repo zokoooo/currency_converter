@@ -1,0 +1,18 @@
+.option-list {
+  position: absolute;
+
+  width: 100%;
+
+  max-height: 200px;
+  overflow-y: scroll;
+
+  background: white;
+
+  border: 1px solid #c8c8c8;
+
+  z-index: 1;
+
+  &[data-open=false] {
+    display: none;
+  }
+}
