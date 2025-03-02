@@ -20,3 +20,13 @@
     align-items: center;
   }
 }
+
+.arrowDown {
+  rotate: 180deg;
+  transition: 200ms ease-in-out;
+}
+
+.arrowUp {
+  rotate: 0deg;
+  transition: 200ms ease-in-out;
+}

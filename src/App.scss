@@ -20,6 +20,24 @@
     font-family: Rubik;
 }
 
+.header {
+    position: absolute;
+    z-index: 2;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: clamp(30px, calc(15px + 1vw), 60px);;
+}
+
 .background {
     width: 60vw;
     min-height: 30vh;
@@ -30,7 +48,7 @@
     justify-content: space-evenly;
     gap: 10px;
 
-    padding: 0 20px;
+    padding: 20px 20px;
     margin-top: -50px;
 
     border-radius: 15px;
@@ -62,7 +80,6 @@
 
 @media (max-width: 767px) {
     .background {
-        padding: 20px 20px;
         flex-direction: column;
     }
 }

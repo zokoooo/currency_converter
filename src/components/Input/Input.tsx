@@ -14,7 +14,7 @@ const Input: React.FC = () => {
   if (!charCodes) {return (<div>Loading...</div>)}
 
   return (
-    <input maxLength={13} value={stateInput ?? ''} className="input-form__input input-form__input--margin" type="text" onChange={(e) => {
+    <input inputMode={'numeric'} maxLength={13} value={stateInput ?? ''} className="input-form__input input-form__input--margin" type="text" onChange={(e) => {
       dispatch(setInputFrom(parseFloat(e.target.value) || null));
       dispatch(setInputTo(converter(charCodes, country.countryTo, country.countryFrom, parseFloat(e.target.value) || 0)))
     }}></input>

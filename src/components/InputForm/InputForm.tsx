@@ -7,6 +7,9 @@ import Input from '../Input/Input.tsx'
 const InputForm: React.FC = () => {
 
   const country = useAppSelector(state => state.reducerCountry.countryFrom);
+  const charCodes = useAppSelector(state => state.reducerCurrency.valute);
+
+  if (!charCodes) {return (<div>Loading...</div>)}
 
   return (
     <div className="input-form">

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './Select.scss';
 import ReactCountryFlag from "react-country-flag";
-import {useAppSelector, useAppDispatch, setCountryTo, setCountryFrom} from "../../store/store.ts";
+import {useAppSelector, useAppDispatch, setCountryTo, setCountryFrom, setInputTo} from "../../store/store.ts";
 import { IoIosArrowDown } from "react-icons/io";
 import OptionList from "../OptionList/OptionList.tsx";
+import {converter} from "../../functions.ts";
 
 interface SelectProps {
   type?: "from" | "to";
@@ -11,17 +12,34 @@ interface SelectProps {
 
 const Select: React.FC<SelectProps> = ({ type }) => {
 
-  const [selectOpen, setSelectOpen] = useState<boolean>(true);
+  const [selectOpen, setSelectOpen] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const setCountry = type == "from" ? setCountryFrom : setCountryTo;
 
+  const inputFrom = useAppSelector(state => state.reducerInput.inputFrom)
   const charCodes = useAppSelector(state => state.reducerCurrency.valute);
   const country = useAppSelector(state => type == 'from' ? state.reducerCountry.countryFrom : state.reducerCountry.countryTo);
+  const countries = useAppSelector(state => state.reducerCountry);
 
   if (!charCodes) {
     return <div className="loading">Loading...</div>;
   }
+
+  const handleOptionClick = (e) => {
+    const charCode = e.target.getAttribute('data-charcode');
+    if (charCode) {
+      dispatch(setCountry(charCode));
+      setSelectOpen(false);
+      const newInputTo = converter(
+        charCodes,
+        type === 'from' ? countries.countryTo : charCode,
+        type === 'from' ? charCode : countries.countryFrom,
+        inputFrom ?? 0
+      );
+      dispatch(setInputTo(newInputTo));
+    }
+  };
 
   return (
     <div className='select'>
@@ -32,11 +50,7 @@ const Select: React.FC<SelectProps> = ({ type }) => {
         <IoIosArrowDown className={selectOpen ? "arrowDown" : "arrowUp"}/>
       </div>
 
-      <OptionList charCodes={charCodes} selectOpen={selectOpen} onClick={(e) => {
-        if (e.target.getAttribute('data-charcode')) {
-          dispatch(setCountry(e.target.getAttribute('data-charcode')));
-          setSelectOpen(!selectOpen);
-        }}}/>
+      <OptionList charCodes={charCodes} selectOpen={selectOpen} onClick={handleOptionClick}/>
     </div>
   );
 };
