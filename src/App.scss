@@ -14,8 +14,8 @@
 
     background: rgb(44,59,175);
     background: linear-gradient(90deg, rgba(44,59,175,1) 0%, rgba(9,19,100,1) 100%);
-    overflow: hidden; /* Ограничиваем всё */
-    position: relative; /* Создаём контекст форматирования */
+    overflow: hidden;
+    position: relative;
 
     font-family: Rubik;
 }
@@ -59,13 +59,13 @@
 .circle {
     z-index: 0;
     position: absolute;
-    bottom: -10vh; /* Вместо margin-top */
+    bottom: -10vh;
     left: -50%;
     width: 200%;
     height: 500px;
     background: white;
     border-radius: 50%;
-    overflow: hidden; /* Теперь будет работать */
+    overflow: hidden;
 }
 
 .flag {
